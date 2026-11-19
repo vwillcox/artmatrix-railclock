@@ -4,11 +4,11 @@ The outer chevron goes round clockwise and the inner one anticlockwise, a turn
 a minute each. They meet as the double arrow at the top on the minute, and
 again at the bottom on the half minute.
 
-A port of statsbadge-railclock from the Tufty 2350. The design follows Network
-Rail's Rail Clock (Design Bridge and Partners, 2025), as FireTVDeparture's clock
-tile draws it in a 200 unit square, scaled here to fill the matrix. The time is
-in Inter Bold, whose tabular digits and raised colon are packed in
-railclock_digits.af (SIL Open Font License 1.1, see OFL-Inter.txt).
+The design follows Network Rail's Rail Clock (Design Bridge and Partners,
+2025), as FireTVDeparture's clock tile draws it in a 200 unit square, scaled
+here to fill the matrix. The time is in Inter Bold, whose tabular digits and
+raised colon are packed in railclock_digits.af (SIL Open Font License 1.1, see
+OFL-Inter.txt).
 
 Only the chevrons move. The rings and the time are drawn into a face once a
 minute, and a frame puts the face back in the boxes the chevrons covered before
