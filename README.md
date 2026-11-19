@@ -119,4 +119,6 @@ that project's README to rebuild it. Inter is under the SIL Open Font License 1.
 This project is not affiliated with or endorsed by Network Rail or National Rail. The
 double arrow symbol is a registered trademark.
 
-The code is MIT licensed; the font is OFL-1.1.
+The code is under the MIT License (`LICENSE`), as Pimoroni's artmatrix-plugins is. The
+font is under the SIL Open Font License 1.1 (`rail_clock/OFL-Inter.txt`), which ships
+with it in the plugin.
