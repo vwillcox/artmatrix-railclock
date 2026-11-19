@@ -1,9 +1,7 @@
 # Rail Clock for the Art Matrix
 
-A plugin for [Pimoroni's Art Matrix](https://github.com/pimoroni/artmatrix) (128×128 RGB
-LEDs): the station clock from my Tufty 2350
-([statsbadge-railclock](https://github.com/vwillcox/statsbadge-railclock)), filling the
-matrix.
+A station clock plugin for [Pimoroni's Art Matrix](https://github.com/pimoroni/artmatrix)
+(128×128 RGB LEDs), filling the matrix.
 
 ![A minute of the Rail Clock, sped up four times, drawn as the matrix's LEDs](shots/rail_clock.gif)
 
@@ -12,27 +10,27 @@ The outer chevron goes round clockwise and the inner one anticlockwise, a turn a
 each. They meet as the double arrow at the top on the minute, and at the bottom on the
 half minute.
 
-The geometry, colours and font are the Tufty page's, which follow Network Rail's Rail
-Clock (Design Bridge and Partners, 2025) as FireTVDeparture's clock tile draws it. The
-200-unit drawing is scaled so the outer chevron's arm stops 2 px from the edge. That puts
-the rings at radii of 56.8 and 51.6 px with a 2.1 px stroke, and the digits about 18 px
-tall.
+The geometry, colours and font follow Network Rail's Rail Clock (Design Bridge and
+Partners, 2025) as FireTVDeparture's clock tile draws it. The 200-unit drawing is scaled
+so the outer chevron's arm stops 2 px from the edge. That puts the rings at radii of 56.8
+and 51.6 px with a 2.1 px stroke, and the digits about 18 px tall.
 
 | On the minute | :07 | :15 | Half minute | Before NTP | 12-hour |
 |---|---|---|---|---|---|
 | ![](shots/rail_clock_minute.png) | ![](shots/rail_clock.png) | ![](shots/rail_clock_quarter.png) | ![](shots/rail_clock_half.png) | ![](shots/rail_clock_waiting.png) | ![](shots/rail_clock_12h.png) |
 
-## How it differs from the Tufty page
+## How it works
 
 - **Time:** the Art Matrix firmware sets the RTC (UTC) from NTP and picks the zone on its
   settings page, so the plugin works out local time with the firmware's `timezones`
   module. It needs nothing from a host. It shows `--:--` while the RTC still holds its
   power-on date (before 2025). The chevrons sweep smoothly off `ticks_ms()` within each
   second.
-- **No tile:** the whole matrix is the face. The background defaults to black, which
-  leaves those LEDs off.
+- **Background:** the whole matrix is the face. It defaults to black, which leaves those
+  LEDs off.
 - **Settings** (on the plugin's config page): ring, time and background colours, and a
   12-hour option.
+
 ## Speed
 
 Only the chevrons move, so a frame does only that work:
@@ -109,10 +107,9 @@ node tools/preview.mjs           # node 25+, ImageMagick
 
 ## The font
 
-`railclock_digits.af` is the Tufty extension's: Inter at weight 700 and optical size 32,
-with its tabular digits and raised colon, packed by statsbadge's `make_text_font.py`. See
-that project's README to rebuild it. Inter is under the SIL Open Font License 1.1
-(`rail_clock/OFL-Inter.txt`).
+`railclock_digits.af` is Inter at weight 700 and optical size 32, with its tabular digits
+and raised colon, packed as a PicoVector `.af` font. Inter is under the SIL Open Font
+License 1.1 (`rail_clock/OFL-Inter.txt`).
 
 ## Notes
 
